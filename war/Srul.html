@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script type="text/javascript" language="javascript"
+	src="srul/srul.nocache.js"></script>
+
+<script>
+	function setupEventSource() {
+		new EventSource("/sse").onmessage = function(event) {
+			var msg = event.data;
+
+			var s = document.getElementById("output").innerHTML;
+			var temp = s;
+
+			// the g in the regular expression says to search the whole string 
+			// rather than just find the first occurrence
+			var count = (temp.match(/>/g) || []).length;
+			var i = 0;
+			if (count > 9) {
+				i = s.indexOf(">");
+				s = s.substring(i + 1);
+			}
+			document.getElementById("output").innerHTML = "&nbsp;>&nbsp;&nbsp;"
+					+ msg + "<br />" + s;
+		};
+	}
+</script>
+</head>
+
+<body style="background-color: #cccccc;" onload="setupEventSource()";>
+<!--   style="width: 100%; height: 100%; background-color: #dddddd;"-->
+
+		<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Онтология русского языка
+			для "мыслящей" сети (проект стандарта КРЯ)</h2>
+		<table>
+			<tr  valign=top>
+				<td id=left></td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td id=right><div id="output"
+						style="width: 665px; height:150px; overflow: auto; background-color: #000000; color: #ffffff;">&nbsp;</div>
+				</td>				
+			</tr>
+		</table>
+		<!-- 
+	<div>&nbsp;&nbsp;<a href="owl?лог"><button>&nbsp;&nbsp; Лог &nbsp;&nbsp;</button></a></div>
+	 -->
+</body>
+</html>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5"
+         xmlns="http://java.sun.com/xml/ns/javaee">
+
+  <!-- Servlets  -->
+  
+  <servlet>
+    <servlet-name>owl</servlet-name>
+    <servlet-class>ss.owl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>owl</servlet-name>
+    <url-pattern>/owl</url-pattern>
+  </servlet-mapping>
+  
+  
+    <servlet>
+    <servlet-name>ms</servlet-name>
+    <servlet-class>ss.server.MyServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>ms</servlet-name>
+    <url-pattern>/srul/ms</url-pattern>
+  </servlet-mapping>
+  
+ <servlet>
+    <servlet-name>greetServlet</servlet-name>
+    <servlet-class>ss.server.GreetingServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>greetServlet</servlet-name>
+    <url-pattern>/srul/greet</url-pattern>
+  </servlet-mapping>
+  
+ 
+  <servlet>
+    <servlet-name>serv_rb</servlet-name>
+    <servlet-class>ss.server.Service_rbImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>serv_rb</servlet-name>
+    <url-pattern>/srul/serv_rb</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+  <servlet>
+    <servlet-name>serv</servlet-name>
+    <servlet-class>ss.server.ServiceImpl</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>serv</servlet-name>
+    <url-pattern>/srul/serv</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  <servlet>
+    <servlet-name>serv2</servlet-name>
+    <servlet-class>ss.server.Service2Impl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>serv2</servlet-name>
+    <url-pattern>/srul/serv2</url-pattern>
+  </servlet-mapping>
+  
+ 
+  <servlet>
+    <servlet-name>serv3</servlet-name>
+    <servlet-class>ss.server.Service3Impl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>serv3</servlet-name>
+    <url-pattern>/srul/serv3</url-pattern>
+  </servlet-mapping>
+  
+ 
+ 
+  <servlet>
+    <servlet-name>serv1</servlet-name>
+    <servlet-class>ss.server.Service1Impl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>serv1</servlet-name>
+    <url-pattern>/srul/serv1</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+	<servlet>
+		<servlet-name>sse</servlet-name>
+		<servlet-class>ss.server.SSEAsyncServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>sse</servlet-name>
+		<url-pattern>/sse</url-pattern>
+	</servlet-mapping>
+
+
+
+
+	<servlet>
+		<servlet-name>ontos</servlet-name>
+		<servlet-class>ss.server.Ontos</servlet-class>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ontos</servlet-name>
+		<url-pattern>/ontos</url-pattern>
+	</servlet-mapping>
+  
+  
+  
+  
+  
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>Srul.html</welcome-file>
+  </welcome-file-list>
+
+</web-app>

@@ -1,0 +1,7 @@
+# Module srul
+# RPC service class, partial path of RPC policy file
+ss.client.Service_rb, 793EA3A719595B30A119CDC5E18CC0EA.gwt.rpc
+ss.client.Service, EB1BD94E7EFE3211B638BE765268E1B8.gwt.rpc
+ss.client.MyService, A2276ED0C6CD336F48CEEE015356BE06.gwt.rpc
+ss.client.Service2, 3AD90E51E5B3B5BD1A7B79E3C1D322FF.gwt.rpc
+ss.client.Service3, 02C9762E6924D21194AA20E9BD9F61A7.gwt.rpc

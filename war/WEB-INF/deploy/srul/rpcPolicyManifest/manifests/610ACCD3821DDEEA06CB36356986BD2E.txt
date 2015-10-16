@@ -1,0 +1,2 @@
+serviceClass: ss.client.MyService
+path: A2276ED0C6CD336F48CEEE015356BE06.gwt.rpc

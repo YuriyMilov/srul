@@ -1,0 +1,226 @@
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+
+
+Ontology: <>
+
+
+Datatype: rdfs:Literal
+
+    
+Datatype: xsd:integer
+
+    
+ObjectProperty: <#hasSon>
+
+    SubPropertyOf: 
+        <#hasChild>
+    
+    Domain: 
+        <#Person>
+    
+    Range: 
+        <#Person>,
+        <#Person>
+         and (<#hasGender> value <#male>)
+    
+    
+ObjectProperty: <#hasGender>
+
+    
+ObjectProperty: <#hasDaughter>
+
+    SubPropertyOf: 
+        <#hasChild>
+    
+    Domain: 
+        <#Person>
+    
+    Range: 
+        <#Person>,
+        <#Person>
+         and (<#hasGender> value <#female>)
+    
+    
+ObjectProperty: <#hasHusband>
+
+    InverseOf: 
+        <#hasWife>
+    
+    
+ObjectProperty: <#hasWife>
+
+    Characteristics: 
+        Functional,
+        InverseFunctional,
+        Asymmetric,
+        Irreflexive
+    
+    Domain: 
+        <#Person>
+    
+    Range: 
+        <#Person>
+    
+    InverseOf: 
+        <#hasHusband>
+    
+    
+ObjectProperty: <#hasChild>
+
+    
+DataProperty: <#hasAge>
+
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        <#Person>
+    
+    Range: 
+        xsd:integer
+    
+    
+DataProperty: <#hasGender2>
+
+    
+Class: <#Person>
+
+    SubClassOf: 
+        (<#hasGender> only ({<#female> , <#male>}))
+         and (<#hasAge> exactly 1 rdfs:Literal)
+         and (<#hasGender2> exactly 1 rdfs:Literal)
+    
+    
+Class: <#Child>
+
+    EquivalentTo: 
+        <#Person>
+         and (<#hasAge> some  not (xsd:integer[>= 21]))
+    
+    
+Class: <#Woman>
+
+    SubClassOf: 
+        <#Person>
+    
+    DisjointWith: 
+        <#Man>
+    
+    
+Class: <#Teenager>
+
+    EquivalentTo: 
+        <#Person>
+         and (<#hasAge> some xsd:integer[>= 12 , < 25])
+    
+    
+Class: <#Adult>
+
+    EquivalentTo: 
+        <#Person>
+         and (<#hasAge> some xsd:integer[>= 21])
+    
+    
+Class: <#Parent>
+
+    SubClassOf: 
+        <#Person>
+    
+    
+Class: <#Man>
+
+    SubClassOf: 
+        <#Person>
+    
+    DisjointWith: 
+        <#Woman>
+    
+    
+Individual: <#male>
+
+    DifferentFrom: 
+        <#female>
+    
+    
+Individual: <#John>
+
+    Types: 
+        <#Person>
+    
+    Facts:  
+     <#hasSon>  <#Bill>,
+     <#hasDaughter>  <#Susan>,
+     <#hasGender>  <#male>,
+     <#hasWife>  <#Mary>,
+     <#hasAge>  33
+    
+    
+Individual: <#Bill>
+
+    Types: 
+        <#Person>
+    
+    Facts:  
+     <#hasGender>  <#male>,
+     <#hasAge>  13
+    
+    
+Individual: <#female>
+
+    DifferentFrom: 
+        <#male>
+    
+    
+Individual: <#Mary>
+
+    Types: 
+        <#Person>
+    
+    Facts:  
+     <#hasSon>  <#Bill>,
+     <#hasDaughter>  <#Susan>,
+     <#hasHusband>  <#John>,
+     <#hasGender>  <#female>,
+     <#hasAge>  31
+    
+    
+Individual: <#David>
+
+    Types: 
+        <#Person>
+    
+    Facts:  
+     <#hasWife>  <#Kate>,
+     <#hasGender>  <#male>,
+     <#hasAge>  32
+    
+    
+Individual: <#Susan>
+
+    Types: 
+        <#Person>
+    
+    Facts:  
+     <#hasGender>  <#female>,
+     <#hasAge>  8
+    
+    
+Individual: <#Kate>
+
+    Types: 
+        <#Person>
+    
+    Facts:  
+     <#hasHusband>  <#David>,
+     <#hasGender>  <#female>,
+     <#hasAge>  21
+    
+    
+DifferentIndividuals: 
+    <#Bill>,<#David>,<#John>,<#Kate>,<#Mary>,<#Susan>
+
